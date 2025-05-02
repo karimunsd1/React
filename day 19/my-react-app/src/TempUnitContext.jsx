@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from 'react';
 
 const TempUnitContext = createContext();
 
-export const useTempUnit = () => useContext(TempUnitContext);               //reuse way to access your context value and short cut
+export const useTempUnit = () => useContext(TempUnitContext);             
  
 export const TempUnitProvider = ({ children }) => {
   const [unit, setUnit] = useState('Celsius');

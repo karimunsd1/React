@@ -7,12 +7,12 @@ import TemperatureToggle from './TemperatureToggle';
 import { TempUnitProvider } from './TempUnitContext';
 
 const fetchWeather = async (city) => {
-  const geocodeRes = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}`);     //convert a city name into geographic coordinates 
+  const geocodeRes = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}`);   
   const geocodeData = await geocodeRes.json();
   
   const { latitude, longitude } = geocodeData.results[0];
 
-  const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`); //based on long&lat provides exact weather temp
+  const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`);    
   const weatherData = await weatherRes.json();
 
   return {
@@ -74,11 +74,11 @@ function App() {
 
         <TemperatureToggle />
         {loading ? (
-          <p className="text-center text-gray-600">Loading...</p>         // true 
+          <p className="text-center text-gray-600">Loading...</p>         
         ) : error ? (
-          <p className="text-center text-red-500">{error}</p>             // error true
+          <p className="text-center text-red-500">{error}</p>             
         ) : (
-          weather && <WeatherDisplay weather={weather} />                 // both false means weather dispalys 
+          weather && <WeatherDisplay weather={weather} />               
         )}
 
       </div>
