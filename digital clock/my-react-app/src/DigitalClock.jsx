@@ -6,17 +6,17 @@ function DigitalClock() {
     const [time, setTime] = useState(new Date());
 
     useEffect(() => {
-        const intervalId = setInterval(() => {
+        const intervalId = setInterval(() => {       //starts a timer that runs every 1000 milliseconds 
             setTime(new Date());
         }, 1000);
 
         return () => {
-            clearInterval(intervalId);
+            clearInterval(intervalId);          //stops the timer, so it doesn’t keep running
         }
     }, []);
   
     const formatTime = (date) => {
-    return date.toLocaleTimeString();
+    return date.toLocaleTimeString();            //formats the date as a human-readable time string based on the user's local time settings
   };
   
     return (

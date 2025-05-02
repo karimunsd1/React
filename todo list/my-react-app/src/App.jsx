@@ -10,19 +10,19 @@ function App() {
   const [tasks, setTasks] = useState(["Eat Breakfast", "Take a shower", "Walk a dog"]);
   const [newTask, setNewTask] = useState("");
 
-  function handleInputChange(event) {
+  function handleInputChange(event) {                          //Updates newTask state with input value
     setNewTask(event.target.value)
   }
   function addTask() {
     if (newTask.trim() !== "")
-      setTasks(tasks => [...tasks, newTask]);
-    setNewTask("");
+      setTasks(tasks => [...tasks, newTask]);                    //adds task
+    setNewTask("");                                          //resets the input field
   }
 
   function deleteTask(index) {
-    const updatedTasks = tasks.filter((element, i) => i !== index);
-    setTasks(updatedTasks);
-  }
+    const updatedTasks = tasks.filter((element, i) => i !== index);    //This creates a new array by filtering out the task at the given index
+    setTasks(updatedTasks);                                              //re-render with the updated list of tasks
+  }                   
 
  function moveTaskUp(index) {
   if (index > 0) {
