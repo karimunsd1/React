@@ -3,14 +3,14 @@ import { useDispatch } from "react-redux";
 import { addComment } from "../redux/postSlice";
 
 const CommentForm = ({ postId }) => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch();              //used to send actions to the Redux store
     const [commentText, setCommentText] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (commentText.trim()) {
             dispatch(addComment({ postId, commentText }));
-            setCommentText("");
+            setCommentText("");                         // Reset the form field
         }
     };
 
