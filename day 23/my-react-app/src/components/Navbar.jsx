@@ -12,7 +12,7 @@ const Navbar = () => {
                     <Link to="/" className="hover:underline">
                         Home
                     </Link>
-                    {/* The profile link is static for now, but could be dynamic later */}
+
                     <Link to="/profile/1" className="hover:underline">
                         Profile
                     </Link>

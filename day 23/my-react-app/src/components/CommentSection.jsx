@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";                      //HTTP client to make API requests
+import axios from "axios";
 
-// Fetch comments for a specific post
+
 const fetchComments = async (postId) => {
     const res = await axios.get(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`);
     return res.data;
 };
 
 const CommentSection = ({ postId }) => {
-    const { data: comments, isLoading } = useQuery({                 //fetches data and provides states like isLoading and data
+    const { data: comments, isLoading } = useQuery({
         queryKey: ["comments", postId],
         queryFn: () => fetchComments(postId),
     });
@@ -26,7 +26,7 @@ const CommentSection = ({ postId }) => {
             email: "you@example.com",
         };
         setLocalComments([comment, ...localComments]);
-        setNewComment(""); // Reset the comment input field
+        setNewComment("");
     };
 
     return (
@@ -37,7 +37,7 @@ const CommentSection = ({ postId }) => {
                 <p className="text-sm text-gray-500">Loading comments...</p>
             ) : (
                 <>
-                    {/* Display local comments first */}
+
                     {localComments.map((comment) => (
                         <div key={comment.id} className="text-sm mb-2 border-b pb-2">
                             <span className="font-semibold text-gray-700">{comment.name}:</span>
@@ -45,7 +45,7 @@ const CommentSection = ({ postId }) => {
                         </div>
                     ))}
 
-                    {/* Display fetched comments */}
+
                     {comments.slice(0, 3).map((comment) => (
                         <div key={comment.id} className="text-sm mb-2 border-b pb-2">
                             <span className="font-semibold text-gray-700">{comment.name}:</span>
@@ -55,7 +55,7 @@ const CommentSection = ({ postId }) => {
                 </>
             )}
 
-            {/* Comment Input and Button */}
+
             <div className="mt-4 flex items-center gap-3">
                 <input
                     type="text"

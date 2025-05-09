@@ -12,7 +12,7 @@ const CreatePostModal = ({ setIsOpen }) => {
         e.preventDefault();
         if (title.trim() && body.trim()) {
             dispatch(addPost({ title, body }));
-            setIsOpen(false); // Clear  modal after adding  post
+            setIsOpen(false);
         }
     };
 
@@ -31,7 +31,7 @@ const CreatePostModal = ({ setIsOpen }) => {
                             placeholder="Enter post title"
                         />
                     </div>
-                    {/*textarea for the post body*/}
+
                     <div className="mb-6">
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Body</label>
                         <textarea

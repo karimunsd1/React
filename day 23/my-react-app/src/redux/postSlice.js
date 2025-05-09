@@ -2,27 +2,26 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     posts: [],
-    likedPosts: [],                                          // Array to store IDs of liked posts
+    likedPosts: [],
 };
 
-const postSlice = createSlice({                              // Create a slice of the Redux store for posts
-    name: "post",
+const postSlice = createSlice({
     initialState,
     reducers: {
-        setPosts: (state, action) => {                             // Action to set posts in the state
-            state.posts = action.payload;                         // Set the posts in the state
+        setPosts: (state, action) => {
+            state.posts = action.payload;
         },
         addPost: (state, action) => {
             const newPost = {
                 id: Date.now(),
                 title: action.payload.title,
-                body: action.payload.body,                      // Create a new post object with a unique ID and the provided title and body
+                body: action.payload.body,
             };
-            state.posts.unshift(newPost);                               // add the new post at the top
+            state.posts.unshift(newPost);
         },
         toggleLike: (state, action) => {
-            const postId = action.payload;                                // Get the post ID from  action payload
-            if (state.likedPosts.includes(postId)) {                          // Check  post is already liked
+            const postId = action.payload;
+            if (state.likedPosts.includes(postId)) {
                 state.likedPosts = state.likedPosts.filter((id) => id !== postId);
             } else {
                 state.likedPosts.push(postId);
@@ -31,5 +30,5 @@ const postSlice = createSlice({                              // Create a slice o
     },
 });
 
-export const { setPosts, addPost, toggleLike } = postSlice.actions;           // Export the actions to be used in components
+export const { setPosts, addPost, toggleLike } = postSlice.actions;
 export default postSlice.reducer;                      

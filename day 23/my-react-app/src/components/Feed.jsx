@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import CreatePostModal from "./CreatePostModal";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";                   //HTTP client to make API requests
-import PostCard from "./PostCard";               // Component to display individual posts
-
+import axios from "axios";
+import PostCard from "./PostCard";
 const fetchPosts = async () => {
     const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
     return res.data.slice(0, 10);
@@ -16,17 +15,17 @@ const Feed = () => {
     });
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [currentPostIndex, setCurrentPostIndex] = useState(0);         // Track the current post showing
+    const [currentPostIndex, setCurrentPostIndex] = useState(0);
 
     const handleNextPost = () => {
         if (posts && posts.length > 0) {
-            setCurrentPostIndex((prevIndex) => (prevIndex + 1) % posts.length); // Cycle through posts
+            setCurrentPostIndex((prevIndex) => (prevIndex + 1) % posts.length);
         }
     };
 
     const handlePreviousPost = () => {
         if (posts && posts.length > 0) {
-            setCurrentPostIndex((prevIndex) => (prevIndex - 1 + posts.length) % posts.length); // Cycle backward through posts
+            setCurrentPostIndex((prevIndex) => (prevIndex - 1 + posts.length) % posts.length);
         }
     };
 
@@ -37,7 +36,7 @@ const Feed = () => {
         <div className="p-6 max-w-3xl mx-auto">
             <h1 className="text-3xl font-semibold mb-6 text-center text-gray-800">Social Feed</h1>
 
-            {/* Create Post Button */}
+
             <button
                 onClick={() => setIsModalOpen(true)}
                 className="mb-6 bg-gradient-to-r from-green-400 via-green-500 to-green-600 text-white px-6 py-2 rounded-full text-lg font-semibold hover:from-green-500 hover:to-green-700 transition-all duration-200 ease-in-out transform hover:scale-105"
@@ -45,15 +44,15 @@ const Feed = () => {
                 + Create New Post
             </button>
 
-            {/* CreatePostModal */}
+
             {isModalOpen && <CreatePostModal setIsOpen={setIsModalOpen} />}
 
-            {/* Single Post Display */}
+
             <div className="space-y-6">
                 {posts && posts.length > 0 && <PostCard key={posts[currentPostIndex].id} post={posts[currentPostIndex]} />}
             </div>
 
-            {/* Navigation Buttons */}
+
             <div className="flex justify-center space-x-4 mt-6">
                 <button
                     onClick={handlePreviousPost}
