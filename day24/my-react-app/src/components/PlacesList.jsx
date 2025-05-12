@@ -198,7 +198,7 @@ const PlacesList = () => {
 
     return (
         <div className="w-full min-h-screen p-6 overflow-y-auto bg-gray-50 relative">
-            <div className="absolute top-4 right-4 flex gap-4">
+            <div className="absolute right-4 top-0 md:top-4 flex gap-4">
 
                 <button className="p-2 rounded-full hover:bg-gray-200">
                     <Share2 size={20} />

@@ -20,7 +20,7 @@ const Sidebar = () => {
                 </button>
             </div>
 
-            {/* Desktop Sidebar - Thinner Version */}
+            {/* Desktop Sidebar */}
             <div className="hidden md:flex h-screen w-12 bg-gray-50 flex-col items-center justify-between py-4 border-r fixed left-0 top-0 z-40">
                 <div className="flex flex-col items-center space-y-4">
                     <div className="bg-gradient-to-tr from-purple-500 to-blue-500 text-white w-9 h-9 flex items-center justify-center rounded-full font-bold text-base">
