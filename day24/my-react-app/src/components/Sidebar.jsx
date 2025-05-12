@@ -1,13 +1,4 @@
-import {
-    Home,
-    BarChart2,
-    User,
-    Calendar,
-    Zap,
-    Bell,
-    Settings,
-    Menu,
-} from 'lucide-react';
+import { Home, BarChart2, User, Calendar, Zap, Bell, Settings, Menu, } from 'lucide-react';
 import { useState } from 'react';
 
 const Sidebar = () => {
