@@ -11,7 +11,7 @@ export default function Success() {
                 our company and click on the included link to reset<br /> your password.
             </p>
             <button
-                onClick={() => navigate('/')}
+                onClick={() => navigate('/dashboard')}
                 className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded transition"
             >
                 Back to Home
